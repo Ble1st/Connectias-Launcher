@@ -1,5 +1,29 @@
 # Changelog Connectias Launcher
 
+## Version 0.4.0 - Core Modules (App Drawer & Homescreen)
+
+**Datum:** Montag, 1. Dezember 2025
+
+**Beschreibung:**
+Implementierung der Kernfunktionalitäten: App Drawer, Homescreen, Dock und Wallpaper-Unterstützung. Der Launcher ist nun funktional nutzbar (Apps starten, Shortcuts anlegen).
+
+**Wichtige Änderungen:**
+*   **App Drawer:**
+    *   `AppRepository`: Lädt installierte Apps via `LauncherApps`-API (unterstützt Work Profiles).
+    *   `AppDrawerViewModel` & `AppDrawerScreen`: Zeigt Apps in einem Grid an.
+    *   Funktion: Starten von Apps durch Antippen, langes Drücken fügt Shortcut zum Homescreen hinzu.
+*   **Homescreen:**
+    *   `HomescreenRepository`: Lädt Shortcuts aus der Room-DB.
+    *   `HomescreenViewModel` & `Homescreen`: Zeigt Shortcuts in einem Grid an und enthält ein statisches Dock.
+    *   Funktion: Starten von Shortcuts, Löschen durch langes Drücken (vorläufig).
+*   **Wallpaper:**
+    *   Themes angepasst (`android:windowShowWallpaper=true`), um das System-Hintergrundbild transparent durchscheinen zu lassen.
+*   **Navigation:**
+    *   Integration von Jetpack Navigation Compose (`NavHost`) zum Wechsel zwischen Homescreen und App Drawer.
+*   **System Services:**
+    *   `SystemServiceModule`: Stellt `LauncherApps` und `UserManager` via Hilt bereit.
+    *   `material-icons-extended` hinzugefügt für erweiterte Icons.
+
 ## Version 0.3.0 - Data Persistence (Room & DataStore)
 
 **Datum:** Montag, 1. Dezember 2025
