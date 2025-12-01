@@ -1,5 +1,23 @@
 # Changelog Connectias Launcher
 
+## Version 0.3.0 - Data Persistence (Room & DataStore)
+
+**Datum:** Montag, 1. Dezember 2025
+
+**Beschreibung:**
+Implementierung der persistenten Datenspeicherung für Launcher-Komponenten wie App-Verknüpfungen und Benutzereinstellungen.
+
+**Wichtige Änderungen:**
+*   **Room Database:**
+    *   `ShortcutEntity`: Definiert die Datenstruktur für App-Verknüpfungen auf dem Homescreen (Paketname, Klassenname, Label, Position, Bildschirm-ID).
+    *   `ShortcutDao`: Datenzugriffsobjekt für CRUD-Operationen auf Shortcut-Entitäten.
+    *   `LauncherDatabase`: Room-Datenbankklasse, die `ShortcutEntity` und `ShortcutDao` verwaltet.
+    *   **Hilt Integration:** `DatabaseModule` zur Bereitstellung von `LauncherDatabase` und `ShortcutDao` über Dependency Injection.
+*   **DataStore Preferences:**
+    *   `PreferenceRepository`: Verwaltet Benutzereinstellungen wie z.B. das Flag für den ersten Start (`is_first_run`), die Homescreen-Rastergröße (`grid_columns`) und das ausgewählte Icon-Pack (`icon_pack_package`).
+    *   **Hilt Integration:** `PreferenceRepository` ist durch `@Inject` Konstruktor Hilt-fähig und wird über `@ApplicationContext` initialisiert.
+*   **Build-System:** Aktualisierung von `gradle/libs.versions.toml` und `app/build.gradle.kts` zur Integration der DataStore-Bibliothek.
+
 ## Version 0.2.0 - Logging & Safe Mode
 
 **Datum:** Montag, 1. Dezember 2025
